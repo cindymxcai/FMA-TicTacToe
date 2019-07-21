@@ -205,6 +205,7 @@ public class TicTacToe
        return draw;
     }
     
+    //1 for player 1 win, 2 for player 1 win to be used in check winner
     public void setWinner(int winner)
     {
         if(winner == 1)
