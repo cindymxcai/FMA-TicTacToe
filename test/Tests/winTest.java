@@ -15,27 +15,27 @@ public class winTest
         TicTacToe game = new TicTacToe();
         int expectedResult = 1;
         
-        game.board.arrayBoard[0][0] = "X";
-        game.board.arrayBoard[0][1] = "X";
-        game.board.arrayBoard[0][2] = "X";
+        game.getBoard().arrayBoard[0][0] = "X";
+        game.getBoard().arrayBoard[0][1] = "X";
+        game.getBoard().arrayBoard[0][2] = "X";
 
         int actual = game.checkWinner();
 
         assertEquals(expectedResult, actual);
         
-        game.board.resetBoard();
+        game.getBoard().resetBoard();
         
-        game.board.arrayBoard[1][0] = "X";
-        game.board.arrayBoard[1][1] = "X";
-        game.board.arrayBoard[1][2] = "X";
+        game.getBoard().arrayBoard[1][0] = "X";
+        game.getBoard().arrayBoard[1][1] = "X";
+        game.getBoard().arrayBoard[1][2] = "X";
         
         assertEquals(expectedResult, actual);
         
-        game.board.resetBoard();
+        game.getBoard().resetBoard();
 
-        game.board.arrayBoard[2][0] = "X";
-        game.board.arrayBoard[2][1] = "X";
-        game.board.arrayBoard[2][2] = "X";
+        game.getBoard().arrayBoard[2][0] = "X";
+        game.getBoard().arrayBoard[2][1] = "X";
+        game.getBoard().arrayBoard[2][2] = "X";
         
         assertEquals(expectedResult, actual);
     }
@@ -46,27 +46,27 @@ public class winTest
         TicTacToe game = new TicTacToe();
         int expectedResult = 2;
         
-        game.board.arrayBoard[0][0] = "O";
-        game.board.arrayBoard[0][1] = "O";
-        game.board.arrayBoard[0][2] = "O";
+        game.getBoard().arrayBoard[0][0] = "O";
+        game.getBoard().arrayBoard[0][1] = "O";
+        game.getBoard().arrayBoard[0][2] = "O";
 
         int actual = game.checkWinner();
 
         assertEquals(expectedResult, actual);
         
-        game.board.resetBoard();
+        game.getBoard().resetBoard();
         
-        game.board.arrayBoard[1][0] = "O";
-        game.board.arrayBoard[1][1] = "O";
-        game.board.arrayBoard[1][2] = "O";
+        game.getBoard().arrayBoard[1][0] = "O";
+        game.getBoard().arrayBoard[1][1] = "O";
+        game.getBoard().arrayBoard[1][2] = "O";
         
         assertEquals(expectedResult, actual);
         
-        game.board.resetBoard();
+        game.getBoard().resetBoard();
    
-        game.board.arrayBoard[2][0] = "O";
-        game.board.arrayBoard[2][1] = "O";
-        game.board.arrayBoard[2][2] = "O";
+        game.getBoard().arrayBoard[2][0] = "O";
+        game.getBoard().arrayBoard[2][1] = "O";
+        game.getBoard().arrayBoard[2][2] = "O";
         
         assertEquals(expectedResult, actual);
     }
@@ -76,27 +76,27 @@ public class winTest
     {
         TicTacToe game = new TicTacToe();
         int expectedResult = 1;
-        game.board.arrayBoard[0][0] = "X";
-        game.board.arrayBoard[1][0] = "X";
-        game.board.arrayBoard[2][0] = "X";
+        game.getBoard().arrayBoard[0][0] = "X";
+        game.getBoard().arrayBoard[1][0] = "X";
+        game.getBoard().arrayBoard[2][0] = "X";
 
         int actual = game.checkWinner();
         
         assertEquals(expectedResult, actual);
         
-        game.board.resetBoard();
+        game.getBoard().resetBoard();
         
-        game.board.arrayBoard[0][1] = "X";
-        game.board.arrayBoard[1][1] = "X";
-        game.board.arrayBoard[2][1] = "X";
+        game.getBoard().arrayBoard[0][1] = "X";
+        game.getBoard().arrayBoard[1][1] = "X";
+        game.getBoard().arrayBoard[2][1] = "X";
         
         assertEquals(expectedResult, actual);
         
-        game.board.resetBoard();
+        game.getBoard().resetBoard();
         
-        game.board.arrayBoard[0][2] = "X";
-        game.board.arrayBoard[1][2] = "X";
-        game.board.arrayBoard[2][2] = "X";
+        game.getBoard().arrayBoard[0][2] = "X";
+        game.getBoard().arrayBoard[1][2] = "X";
+        game.getBoard().arrayBoard[2][2] = "X";
         
         assertEquals(expectedResult, actual);  
     }
@@ -107,27 +107,27 @@ public class winTest
         TicTacToe game = new TicTacToe();
         int expectedResult = 2;
         
-        game.board.arrayBoard[0][0] = "O";
-        game.board.arrayBoard[1][0] = "O";
-        game.board.arrayBoard[2][0] = "O";
+        game.getBoard().arrayBoard[0][0] = "O";
+        game.getBoard().arrayBoard[1][0] = "O";
+        game.getBoard().arrayBoard[2][0] = "O";
 
         int actual = game.checkWinner();
 
         assertEquals(expectedResult, actual);
         
-        game.board.resetBoard();
+        game.getBoard().resetBoard();
         
-        game.board.arrayBoard[0][1] = "O";
-        game.board.arrayBoard[1][1] = "O";
-        game.board.arrayBoard[2][1] = "O";
+        game.getBoard().arrayBoard[0][1] = "O";
+        game.getBoard().arrayBoard[1][1] = "O";
+        game.getBoard().arrayBoard[2][1] = "O";
         
         assertEquals(expectedResult, actual);
         
-        game.board.resetBoard();
+        game.getBoard().resetBoard();
         
-        game.board.arrayBoard[0][2] = "O";
-        game.board.arrayBoard[1][2] = "O";
-        game.board.arrayBoard[2][2] = "O";
+        game.getBoard().arrayBoard[0][2] = "O";
+        game.getBoard().arrayBoard[1][2] = "O";
+        game.getBoard().arrayBoard[2][2] = "O";
         
         assertEquals(expectedResult, actual);
     }
@@ -139,19 +139,19 @@ public class winTest
         TicTacToe game = new TicTacToe();
         int expectedResult = 1;
         
-        game.board.arrayBoard[0][0] = "X";
-        game.board.arrayBoard[1][1] = "X";
-        game.board.arrayBoard[2][2] = "X";
+        game.getBoard().arrayBoard[0][0] = "X";
+        game.getBoard().arrayBoard[1][1] = "X";
+        game.getBoard().arrayBoard[2][2] = "X";
 
         int actual = game.checkWinner();
 
         assertEquals(expectedResult, actual);
         
-        game.board.resetBoard();
+        game.getBoard().resetBoard();
         
-        game.board.arrayBoard[2][0] = "X";
-        game.board.arrayBoard[1][1] = "X";
-        game.board.arrayBoard[0][2] = "X";
+        game.getBoard().arrayBoard[2][0] = "X";
+        game.getBoard().arrayBoard[1][1] = "X";
+        game.getBoard().arrayBoard[0][2] = "X";
         
         assertEquals(expectedResult, actual);     
     }
@@ -161,19 +161,19 @@ public class winTest
         TicTacToe game = new TicTacToe();
         int expectedResult = 2;
         
-        game.board.arrayBoard[0][0] = "O";
-        game.board.arrayBoard[1][1] = "O";
-        game.board.arrayBoard[2][2] = "O";
+        game.getBoard().arrayBoard[0][0] = "O";
+        game.getBoard().arrayBoard[1][1] = "O";
+        game.getBoard().arrayBoard[2][2] = "O";
 
         int actual = game.checkWinner();
 
         assertEquals(expectedResult, actual);
         
-        game.board.resetBoard();
+        game.getBoard().resetBoard();
         
-        game.board.arrayBoard[2][0] = "O";
-        game.board.arrayBoard[1][1] = "O";
-        game.board.arrayBoard[0][2] = "O";
+        game.getBoard().arrayBoard[2][0] = "O";
+        game.getBoard().arrayBoard[1][1] = "O";
+        game.getBoard().arrayBoard[0][2] = "O";
         
         assertEquals(expectedResult, actual);     
     }
@@ -185,15 +185,15 @@ public class winTest
         boolean actual = false;
         boolean expectedResult = true;
          
-        game.board.arrayBoard[0][0] = "X";
-        game.board.arrayBoard[0][1] = "O";
-        game.board.arrayBoard[0][2] = "X";
-        game.board.arrayBoard[1][0] = "X";
-        game.board.arrayBoard[1][1] = "O";
-        game.board.arrayBoard[1][2] = "O";
-        game.board.arrayBoard[2][0] = "O";
-        game.board.arrayBoard[2][1] = "X";
-        game.board.arrayBoard[2][2] = "X";
+        game.getBoard().arrayBoard[0][0] = "X";
+        game.getBoard().arrayBoard[0][1] = "O";
+        game.getBoard().arrayBoard[0][2] = "X";
+        game.getBoard().arrayBoard[1][0] = "X";
+        game.getBoard().arrayBoard[1][1] = "O";
+        game.getBoard().arrayBoard[1][2] = "O";
+        game.getBoard().arrayBoard[2][0] = "O";
+        game.getBoard().arrayBoard[2][1] = "X";
+        game.getBoard().arrayBoard[2][2] = "X";
    
         actual = game.checkDraw();
 

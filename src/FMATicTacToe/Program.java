@@ -1,13 +1,6 @@
 package FMATicTacToe;
 
-import java.util.Scanner;
-import java.util.regex.Pattern;
-
-
 public class Program {
-          
-    //public static String positionChosen; 
-    static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) 
     {
@@ -15,7 +8,7 @@ public class Program {
         game.printWelcomeMessage();
         game.startGame();
 
-        while(game.inProgress)
+        while(game.getInProgress())
         {
             String playersMove = "";
             
@@ -23,12 +16,13 @@ public class Program {
             game.promptForPlayerInput();
             
             // allow that player to make a move
-            playersMove = game.getNextMove();   
+            playersMove = game.getNextMove(); 
+            
             if(playersMove.equals("q"))
             {
                 // game ended
                 game.endGame();
-                if (game.p1.currentTurn == true )
+                if (game.getP1().currentTurn == true )
                 {
                     System.out.println("Player 1 quit, Player 2 has won the game!");
                 }
@@ -37,7 +31,7 @@ public class Program {
                     System.out.println("Player 2 quit, Player 1 has won the game!");
                 }
                 
-                //end game
+                //break out of the game loop
                 break;
             }
             else
@@ -45,10 +39,13 @@ public class Program {
                 // update the board with chosen position
                 game.updateBoard(playersMove);
                 System.out.println("Move accepted, here's the current board:\n");
+                
                 // print the current board
-                game.board.currentBoard();
+                game.getBoard().currentBoard();
+                
                 // if valid move, and board is not full, then swap player turn
-                game.swapPlayerTurn();              
+                game.swapPlayerTurn();          
+                
                 // update the board and check if any player has won
                 int winner = game.checkWinner();
                 if(winner != 0)
@@ -56,12 +53,13 @@ public class Program {
                     //a player won
                     System.out.println("Player " + winner + " has won the game!");
                     game.setWinner(winner);    
-                    game.inProgress = false;  
+                    game.setInProgress(false);  
                 }
                 else
                 {
                     //if no winner, check draw
-                    if(game.checkDraw()){
+                    if(game.checkDraw())
+                    {
                         System.out.println("Draw!");
                         game.endGame();
                     }

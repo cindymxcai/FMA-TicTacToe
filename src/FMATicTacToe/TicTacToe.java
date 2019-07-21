@@ -6,12 +6,12 @@ import java.util.regex.Pattern;
 
 public class TicTacToe 
 {
-    public Boolean inProgress;
-    public Board board;
-    public Player p1, p2;
-    public Scanner scan;
-    final Pattern pattern = Pattern.compile( "\\d,\\d");
-    final Pattern patternQuit = Pattern.compile("q");
+    private Boolean inProgress;
+    private Board board;
+    private Player p1, p2;
+    private Scanner scan;
+    private final Pattern pattern = Pattern.compile( "\\d,\\d");
+    private final Pattern patternQuit = Pattern.compile("q");
     
     public TicTacToe()
     {
@@ -36,21 +36,21 @@ public class TicTacToe
     // swaps back and forth between player turns
     public void swapPlayerTurn()
     {
-        if(p1.currentTurn)
+        if(getP1().currentTurn)
         {
-            p1.currentTurn = p2.currentTurn;
+            p1.currentTurn = getP2().currentTurn;
             p2.currentTurn = true;
         }
         else
         {
-            p2.currentTurn = p1.currentTurn;
+            p2.currentTurn = getP1().currentTurn;
             p1.currentTurn = true;
         }
     }
     
     public void promptForPlayerInput()
     {
-        if(p1.currentTurn)
+        if(getP1().currentTurn)
         {
             System.out.println("\nPlayer 1 enter a coord x,y to place your X or enter 'q' to give up: ");
         }
@@ -103,7 +103,7 @@ public class TicTacToe
             }
             else
             {
-                if(board.arrayBoard[point.x][point.y]!= ".")
+                if(!getBoard().arrayBoard[point.x][point.y].equals("."))
                 {
                     System.out.println("Oh no, a piece is already at this place! Try again...");
                     return false;
@@ -116,11 +116,11 @@ public class TicTacToe
     {              
        Point point = getPointFromString(playersMove);
        
-       if (p1.currentTurn == true )
+       if (getP1().currentTurn == true )
        {
            board.arrayBoard[point.x][point.y] = "X";
        }
-       else if (p2.currentTurn == true)
+       else if (getP2().currentTurn == true)
        {
            board.arrayBoard[point.x][point.y] = "O";
        }
@@ -131,12 +131,12 @@ public class TicTacToe
         for(int column = 0; column < 3; column++)
         {
              //if player 1 wins a column
-            if(board.arrayBoard[column][0].equals("X") && board.arrayBoard[column][1].equals("X") && board.arrayBoard[column][2].equals("X"))
+            if(getBoard().arrayBoard[column][0].equals("X") && getBoard().arrayBoard[column][1].equals("X") && getBoard().arrayBoard[column][2].equals("X"))
             {
                 return 1;
             }            
             // if player 2 wins a column
-            if(board.arrayBoard[column][0].equals("O") && board.arrayBoard[column][1].equals("O") && board.arrayBoard[column][2].equals("O"))
+            if(getBoard().arrayBoard[column][0].equals("O") && getBoard().arrayBoard[column][1].equals("O") && getBoard().arrayBoard[column][2].equals("O"))
             {
                 return 2;
             }  
@@ -145,24 +145,24 @@ public class TicTacToe
         for(int row = 0; row < 3; row++)
         {
             // if player 1 wins a row
-            if(board.arrayBoard[0][row].equals("X") && board.arrayBoard[1][row].equals("X") && board.arrayBoard[2][row].equals("X"))
+            if(getBoard().arrayBoard[0][row].equals("X") && getBoard().arrayBoard[1][row].equals("X") && getBoard().arrayBoard[2][row].equals("X"))
             {
                 return 1;
             }
             
             // if player 2 wins a row
-            if(board.arrayBoard[0][row].equals("O") && board.arrayBoard[1][row].equals("O") && board.arrayBoard[2][row].equals("O"))
+            if(getBoard().arrayBoard[0][row].equals("O") && getBoard().arrayBoard[1][row].equals("O") && getBoard().arrayBoard[2][row].equals("O"))
             {
                 return 2;
             }  
         }
         //if player 1 wins diagonally
-        if (board.arrayBoard[0][0].equals("X") && board.arrayBoard[1][1].equals("X") && board.arrayBoard[2][2].equals("X") || (board.arrayBoard[0][2].equals("X") && board.arrayBoard[1][1].equals("X") && board.arrayBoard[2][0].equals("X")))
+        if (getBoard().arrayBoard[0][0].equals("X") && getBoard().arrayBoard[1][1].equals("X") && getBoard().arrayBoard[2][2].equals("X") || (getBoard().arrayBoard[0][2].equals("X") && getBoard().arrayBoard[1][1].equals("X") && getBoard().arrayBoard[2][0].equals("X")))
         {
             return 1;
         }
         //if player 2 wins diagonally
-        if (board.arrayBoard[0][0].equals("0") && board.arrayBoard[1][1].equals("O") && board.arrayBoard[2][2].equals("O") || (board.arrayBoard[0][2].equals("O") && board.arrayBoard[1][1].equals("O") && board.arrayBoard[2][0].equals("O")))
+        if (getBoard().arrayBoard[0][0].equals("0") && getBoard().arrayBoard[1][1].equals("O") && getBoard().arrayBoard[2][2].equals("O") || (getBoard().arrayBoard[0][2].equals("O") && getBoard().arrayBoard[1][1].equals("O") && getBoard().arrayBoard[2][0].equals("O")))
         {
             return 2;
         }
@@ -173,7 +173,7 @@ public class TicTacToe
 
     public void printBoard()
     {
-        this.board.currentBoard();
+        this.getBoard().currentBoard();
     }
     
     public void printWelcomeMessage() 
@@ -196,7 +196,7 @@ public class TicTacToe
         {
             for (int j = 0; j < 3; j ++ )
             {                
-              if(board.arrayBoard[i][j].equals("."))
+              if(getBoard().arrayBoard[i][j].equals("."))
               {
                   draw = false;
               }
@@ -217,5 +217,28 @@ public class TicTacToe
             p2.won = true;
         }
     }
+
+    public Boolean getInProgress() 
+    {
+        return inProgress;
+    }
+
+    public Board getBoard() 
+    {
+        return board;
+    }
     
+    public Player getP1() 
+    {
+        return p1;
+    }
+
+    public Player getP2()
+    {
+        return p2;
+    }
+
+    public void setInProgress(boolean inProgress) {
+        this.inProgress = inProgress;
+    }
 }

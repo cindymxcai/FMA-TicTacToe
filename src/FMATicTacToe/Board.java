@@ -6,8 +6,8 @@ public class Board
     
     public Board()
     {
+        // instantiate the board's variables
         arrayBoard = new String[3][3];
-        //null to .
         resetBoard();
     }
     
@@ -45,7 +45,7 @@ public class Board
         {
             for (int j = 0; j < 3; j ++ )
             {                
-              if(arrayBoard[i][j] != ".")
+              if(!arrayBoard[i][j].equals("."))
               {
                   positionFound = true;
               }

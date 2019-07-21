@@ -20,19 +20,19 @@ public class gameTest {
         TicTacToe game = new TicTacToe();
         
         // sets the first position to X
-        game.board.arrayBoard[0][0] = "X";
+        game.getBoard().arrayBoard[0][0] = "X";
         
         String inputTaken = "1,1";
         String inputNotTaken = "1,2";
         Point pointTaken = game.getPointFromString(inputTaken);
         Point pointNotTaken= game.getPointFromString(inputNotTaken);
         
-        if (game.board.arrayBoard[pointTaken.x][pointTaken.y] != ".") 
+        if (game.getBoard().arrayBoard[pointTaken.x][pointTaken.y] != ".") 
         {
             actualTaken = true;
         }
         
-        if(game.board.arrayBoard[pointNotTaken.x][pointNotTaken.y] == ".")
+        if(game.getBoard().arrayBoard[pointNotTaken.x][pointNotTaken.y] == ".")
         {
             actualNotTaken = true;
         }
@@ -65,7 +65,7 @@ public class gameTest {
         game.swapPlayerTurn();
         
         // player 1s current turn = false
-        boolean actual = game.p1.currentTurn;
+        boolean actual = game.getP1().currentTurn;
         assertEquals(expectedResult, actual);
     }
     
